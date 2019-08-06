@@ -1,0 +1,4 @@
+*.log
+*.rpm
+*.tar.gz
+jsonnet-*/

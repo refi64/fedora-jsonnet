@@ -1,0 +1,32 @@
+From 1373edf88ff6b3bf22e6a130c217c303b0f26903 Mon Sep 17 00:00:00 2001
+From: Ryan Gonzalez <rymg19@gmail.com>
+Date: Tue, 6 Aug 2019 14:29:51 -0500
+Subject: [PATCH 4/4] Fix location of GNUInstallDirs in CMakeLists.txt
+
+---
+ CMakeLists.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3da4dc7..d2da8e3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,5 +1,6 @@
+ # Travis CI runs CMake 2.8.7 so we are pinned to that verison.
+ cmake_minimum_required(VERSION 2.8.7)
++project(jsonnet C CXX)
+ include(ExternalProject)
+ include(GNUInstallDirs)
+ 
+@@ -11,8 +12,6 @@ option(USE_SYSTEM_GTEST "Use system-provided gtest library" OFF)
+ set(GLOBAL_OUTPUT_PATH_SUFFIX "" CACHE STRING
+     "Output artifacts directory.")
+ 
+-project(jsonnet C CXX)
+-
+ # Discourage in-source builds because they overwrite the hand-written Makefile.
+ # Use `cmake . -B<dir>` or the CMake GUI to do an out-of-source build.
+ if (${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR} AND
+-- 
+2.21.0
+
